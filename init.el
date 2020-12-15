@@ -8,7 +8,7 @@
 ;; read "package autoloads":  http://www.lunaryorn.com/2014/07/02/autoloads-in-emacs-lisp.html
 (unless (package-installed-p 'use-package)
     (package-refresh-contents)
-      (package-install 'use-package))')'))`
+      (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
 (require 'use-package-ensure)
@@ -24,23 +24,34 @@
 (use-package org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+(use-package gruvbox-theme)
+
 ;; Custom settings
 (setq ring-bell-function 'ignore)
 
 (add-to-list 'default-frame-alist
-             '(font . "Fira Code-12:regular"))
+             '(font . "Fira Code-14"))
 
-(load-theme 'gruvbox)
+(load-theme 'gruvbox t)
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
 
 (setq org-agenda-window-setup 'current-window)
-(setq org-agenda-files '("/mnt/c/Users/antho/Documents/org"))
+(setq org-agenda-files '("~/org"))
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 (setq-default major-mode 'normal-mode)
+
+;; Separate custom settings from init.el
+ (setq custom-file "~/.emacs.d/custom.el")
+
+;; Store all backup and autosave files in the tmp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
