@@ -15,8 +15,20 @@
 (setq use-package-always-ensure t)
 
 ;; Install and enable packages
+
 (use-package evil)
 (evil-mode 1)
+
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 (use-package which-key)
 (which-key-mode)
@@ -57,3 +69,11 @@
       `((".*" ,temporary-file-directory t)))
 
 (set-scroll-bar-mode nil)
+
+;; Scrolling
+
+;; Scroll one line at a time 
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
