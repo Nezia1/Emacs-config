@@ -39,6 +39,8 @@
 (use-package gruvbox-theme)
 
 ;; Custom settings
+
+(setq display-line-numbers 'relative)
 (setq ring-bell-function 'ignore)
 
 (add-to-list 'default-frame-alist

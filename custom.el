@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-org which-key use-package org-bullets gruvbox-theme evil))))
+    (evil-org which-key use-package popup org-bullets gruvbox-theme evil async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
