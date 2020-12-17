@@ -56,7 +56,6 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-(global-set-key (kbd "C-c a") 'org-agenda)
 (setq-default major-mode 'normal-mode)
 
 ;; Separate custom settings from init.el
@@ -77,3 +76,13 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
+
+;; Custom bindings
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c w d") 'delete-window)
+(global-set-key (kbd "C-c w h") 'split-window-below)
+(global-set-key (kbd "C-c w v") 'split-window-right)
+
+;; Rename which-key prefixes
+(which-key-add-key-based-replacements
+  "C-c w" "window")
