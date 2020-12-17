@@ -78,7 +78,7 @@
 ;; each state with ! is recorded as state change
 ;; in this case I'm logging TODO and DONE states
 (setq org-todo-keywords
-      '((sequence "TODO(t!)" "NEXT(n)" "SOMD(s)" "WAFO(w)" "|" "DONE(d!)" "CANC(c!)")))
+      '((sequence "TODO(t!)" "|" "DONE(d!)")))
 
 ;; log into a separate LOGBOOK drawer
 (setq org-log-into-drawer t)
