@@ -50,9 +50,6 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
-(setq org-agenda-window-setup 'current-window)
-(setq org-agenda-files '("~/org"))
-
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
@@ -68,6 +65,27 @@
       `((".*" ,temporary-file-directory t)))
 
 (set-scroll-bar-mode nil)
+
+;; Org mode
+
+;; Enable habits
+(with-eval-after-load 'org
+  (add-to-list 'org-modules 'org-habit t))
+
+(setq org-agenda-window-setup 'current-window)
+(setq org-agenda-files '("~/org"))
+
+;; each state with ! is recorded as state change
+;; in this case I'm logging TODO and DONE states
+(setq org-todo-keywords
+      '((sequence "TODO(t!)" "NEXT(n)" "SOMD(s)" "WAFO(w)" "|" "DONE(d!)" "CANC(c!)")))
+
+;; log into a separate LOGBOOK drawer
+(setq org-log-into-drawer t)
+
+;; Avoid showing all future TODO entries and only show them for the current week
+(setq org-agenda-show-future-repeats nil)
+
 ;; Scrolling
 
 ;; Scroll one line at a time 
