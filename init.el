@@ -68,7 +68,6 @@
       `((".*" ,temporary-file-directory t)))
 
 (set-scroll-bar-mode nil)
-
 ;; Scrolling
 
 ;; Scroll one line at a time 
@@ -78,11 +77,17 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 ;; Custom bindings
+;; Window
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c w d") 'delete-window)
 (global-set-key (kbd "C-c w h") 'split-window-below)
 (global-set-key (kbd "C-c w v") 'split-window-right)
+(global-set-key (kbd "C-c w o") 'other-window)
+
+;; Open
+(global-set-key (kbd "C-c o t") 'ansi-term)
 
 ;; Rename which-key prefixes
 (which-key-add-key-based-replacements
-  "C-c w" "window")
+  "C-c w" "window"
+  "C-c o" "open")
