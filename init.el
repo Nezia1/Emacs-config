@@ -16,6 +16,10 @@
 
 ;; Install and enable packages
 
+(use-package evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-leader "<SPC>")
+
 (use-package evil)
 (evil-mode 1)
 
@@ -29,6 +33,7 @@
               (evil-org-set-key-theme)))
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
+
 
 (use-package which-key)
 (which-key-mode)
@@ -97,17 +102,22 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 ;; Custom bindings
-;; Window
+
+;; Org
 (global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c w d") 'delete-window)
-(global-set-key (kbd "C-c w h") 'split-window-below)
-(global-set-key (kbd "C-c w v") 'split-window-right)
-(global-set-key (kbd "C-c w o") 'other-window)
+
+;; Window
+(evil-leader/set-key
+  "w d" 'delete-window
+  "w h" 'split-window-below
+  "w v" 'split-window-right
+  "w o" 'other-window)
 
 ;; Open
-(global-set-key (kbd "C-c o t") 'ansi-term)
+(evil-leader/set-key
+  "o t" 'ansi-term)
 
 ;; Rename which-key prefixes
 (which-key-add-key-based-replacements
-  "C-c w" "window"
-  "C-c o" "open")
+  "SPC w" "window"
+  "SPC o" "open")
