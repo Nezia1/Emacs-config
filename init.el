@@ -104,7 +104,8 @@
 ;; Custom bindings
 
 ;; Org
-(global-set-key (kbd "C-c a") 'org-agenda)
+(evil-leader/set-key
+  "a" org-agenda)
 
 ;; Window
 (evil-leader/set-key
