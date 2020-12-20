@@ -105,7 +105,7 @@
 
 ;; Org
 (evil-leader/set-key
-  "a" org-agenda)
+  "a" 'org-agenda)
 
 ;; Window
 (evil-leader/set-key
