@@ -45,7 +45,9 @@
 
 ;; Custom settings
 
-(setq display-line-numbers 'relative)
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
+
 (setq ring-bell-function 'ignore)
 
 (add-to-list 'default-frame-alist
